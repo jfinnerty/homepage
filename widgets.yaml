@@ -1,0 +1,37 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/en/configs/widgets
+
+#- resources:
+#    cpu: true
+#    memory: true
+#    disk: /
+
+- search:
+    provider: duckduckgo
+    target: _blank
+
+- glances:
+    url: http://192.168.11.10:61208
+    #username: user # optional if auth enabled in Glances
+    #password: pass # optional if auth enabled in Glances
+    cputemp: true # disabled by default
+    uptime: true # disabled by default
+    label: M900 # optional
+    disk: /
+#        - /sda
+
+- glances:
+    url: http://192.168.11.65:61208
+    #username: user # optional if auth enabled in Glances
+    #password: pass # optional if auth enabled in Glances
+    cputemp: true # disabled by default
+    uptime: true # disabled by default
+    label: MM # optional
+    disk: /
+      # - /sda
+      # - /sdb
+
+
+
+

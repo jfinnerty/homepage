@@ -1,0 +1,107 @@
+# For configuration options and examples, please see:
+# https://gethomepage.dev/en/configs/services
+
+#- Services: 
+
+- M900:
+   
+    - CPU :
+            widget:
+                type: glances
+                url:  http://192.168.11.10:61208
+                metric: cpu
+    - Memory :
+            widget:
+                type: glances
+                url:  http://192.168.11.10:61208
+                metric: memory
+    - Disk:
+            widget:
+                type: glances
+                url:  http://192.168.11.10:61208
+                metric: disk:sda 
+  #  - Process:
+   #         widget:
+    #            type: glances
+     #           url:  http://192.168.11.10:61208
+      #          metric: process        
+    - Network :
+            widget:
+                type: glances
+                url:  http://192.168.11.10:61208
+                metric: network:eno1
+- MM :    
+    - CPU :
+            widget:
+                type: glances
+                url:  http://192.168.11.65:61208
+                metric: cpu
+    - Memory :
+            widget:
+                type: glances
+                url:  http://192.168.11.65:61208
+                metric: memory
+    - Disk:
+            widget:
+                type: glances
+                url:  http://192.168.11.65:61208
+                metric: disk:sda
+  #  - Process:
+   #         widget:
+    #            type: glances
+     #           url:  http://192.168.11.65:61208
+      #          metric: process        
+    - Network :
+            widget:
+                type: glances
+                url:  http://192.168.11.65:61208
+                metric: network:wlp2s0
+
+
+- Portainer:
+    - M900:
+        href: https://192.168.11.10:9443/#!/2/docker/dashboard
+        description: M900
+         #server: M900
+        icon: portainer-alt.png
+        container: portainer
+        widget:
+           type: portainer
+           url: https://192.168.11.10:9443
+           env: 2
+           key: ptr_GSOWrPfJdXbkXFSwnQGHRRbhUiqdqRTWkcGgeCUir4s= 
+           fields: ["running", "stopped", "total"]
+    
+    - MM:
+        href: https://192.168.11.10:9443/#!/2/docker/dashboard
+        description: MM
+         #server: M900
+        icon: portainer-alt.png
+        container: portainer
+        widget:
+           type: portainer
+           url: https://192.168.11.10:9443
+           env: 4
+           key: ptr_GSOWrPfJdXbkXFSwnQGHRRbhUiqdqRTWkcGgeCUir4s= 
+           fields: ["running", "stopped", "total"]
+
+- Tools: 
+    - Prometheus:           
+        href: http://192.168.11.10:9090
+        description: Prometheus
+        server: M900
+        container: prometheus
+        widget:
+          type: prometheus
+          url: http://192.168.11.10:9090
+          fields: ["targets_up", "targets_down", "targets_total"]
+
+    - PiAlert:
+        href: http://192.168.11.10:20211
+        description: PiAlert
+        server: M900
+        container: PiAlert
+        widget:
+          type: pialert
+          url: http://192.168.11.10:20211
+          fields: ["total", "connected", "new_devices", "down_alerts"]

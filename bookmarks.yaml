@@ -1,0 +1,39 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/en/configs/bookmarks
+
+
+- M900 Containers:
+   - Portainter M900:
+      - href: http://192.168.11.10:9433/ 
+
+   - Portainter MM:
+      - href: http://192.168.11.65:9433/ 
+
+   - Grafana:
+      - href: http://192.168.11.10:3030/
+
+   - Prometheus:
+      - href: http://192.168.11.10:9090/
+
+   - Blackbox:
+      - href: http://192.168.11.10:9115/
+
+   - DD-WRT:
+      -  href: https://192.168.11.1
+
+- Tools:
+   - homepage:
+      - href: https://gethomepage.dev/en/installation/
+   
+   - Grafana Docs:    
+      - href: https://grafana.com/docs/grafana/latest/
+
+   - Prometheus:
+       - href: https://prometheus.io/docs/prometheus/latest/getting_started/
+
+   - Homelab:
+       - href: https://www.reddit.com/r/homelab/
+   - Docker:
+       - href:  https://www.reddit.com/r/docker/         
+
